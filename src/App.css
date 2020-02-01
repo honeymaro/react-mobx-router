@@ -1,6 +1,6 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   height: 100%;
 }
 

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from "react-hot-loader/root";
 import { inject, observer } from "mobx-react";
 import { Helmet } from "react-helmet";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import Main from "pages/Main";
@@ -11,10 +11,13 @@ import Main from "pages/Main";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 
-@inject("routing")
-@observer
-class App extends Component {
-  render() {
+const App = inject("routing")(
+  observer(() => {
+    const { pathname } = useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
       <div className="App">
         <Helmet>
@@ -29,7 +32,7 @@ class App extends Component {
         {/* <Footer /> */}
       </div>
     );
-  }
-}
+  })
+);
 
 export default process.env.NODE_ENV === "development" ? hot(App) : App;
