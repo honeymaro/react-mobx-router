@@ -4,12 +4,10 @@ import { hot } from "react-hot-loader/root";
 import { inject, observer } from "mobx-react";
 import { Helmet } from "react-helmet";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 
 import Main from "pages/Main";
 
 import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
 
 const App = inject("routing")(
   observer(() => {
@@ -25,7 +23,6 @@ const App = inject("routing")(
           <title>app-name</title>
         </Helmet>
         {/* <Header /> */}
-        <ToastContainer position={toast.POSITION.TOP_CENTER} />
         <Switch>
           <Route path="/" exact component={Main} />
         </Switch>

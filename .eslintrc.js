@@ -3,19 +3,19 @@ const path = require("path");
 module.exports = {
   parser: "babel-eslint",
   extends: ["airbnb", "prettier"],
-  plugins: ["react"],
+  plugins: ["react", "react-hooks"],
   settings: {
     "import/resolver": {
-      node: { paths: [path.resolve("./src")] }
-    }
+      node: { paths: [path.resolve("./src")] },
+    },
   },
   rules: {
     semi: [
       "off",
       "never",
       {
-        omitLastInOneLineBlock: true
-      }
+        omitLastInOneLineBlock: true,
+      },
     ],
     "arrow-body-style": [0],
     "class-methods-use-this": [0, { exceptMethods: [] }],
@@ -39,10 +39,13 @@ module.exports = {
     "react/prop-types": [0], // temp,
     "linebreak-style": [0],
     "arrow-parens": "off",
-    "jsx-a11y/anchor-has-content": [0]
+    "jsx-a11y/anchor-has-content": [0],
+    "react/require-default-props": [0],
+    "react/jsx-wrap-multilines": [0],
+    "react-hooks/exhaustive-deps": ["error"],
   },
   env: {
     browser: true,
-    node: true
-  }
+    node: true,
+  },
 };
