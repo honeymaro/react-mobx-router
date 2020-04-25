@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "babel-plugin-import": "^1.13.0",
     "comma-number": "^2.0.1",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.4.0",
