@@ -1,3 +1,5 @@
+import "core-js";
+import "regenerator-runtime/runtime";
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
@@ -18,7 +20,7 @@ const authStore = new AuthStore();
 const stores = {
   // Key can be whatever you want
   routing: routingStore,
-  auth: authStore
+  auth: authStore,
   // ...other stores
 };
 
