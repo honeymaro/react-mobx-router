@@ -24,6 +24,7 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-snap": "^1.23.0",
     "regenerator-runtime": "^0.13.5",
     "styled-components": "^4.4.0",
     "urlencode": "^1.1.0"
@@ -31,6 +32,7 @@
   "scripts": {
     "start": "cp ./.env.development ./.env && react-app-rewired start",
     "build": "cp ./.env.development ./.env && react-app-rewired build",
+    "postbuild": "react-snap",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },

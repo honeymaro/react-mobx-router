@@ -1,7 +1,7 @@
 import "core-js";
 import "regenerator-runtime/runtime";
 import React from "react";
-import ReactDOM from "react-dom";
+import { hydrate, render } from "react-dom";
 import { createBrowserHistory } from "history";
 import { Provider } from "mobx-react";
 import { RouterStore, syncHistoryWithStore } from "mobx-react-router";
@@ -25,15 +25,28 @@ const stores = {
 };
 
 const history = syncHistoryWithStore(browserHistory, routingStore);
+const rootElement = document.getElementById("root");
 
-ReactDOM.render(
-  <Provider {...stores}>
-    <Router history={history}>
-      <App />
-    </Router>
-  </Provider>,
-  document.getElementById("root")
-);
+if (rootElement.hasChildNodes()) {
+  hydrate(
+    <Provider {...stores}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>,
+    rootElement
+  );
+} else {
+  render(
+    <Provider {...stores}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>,
+    rootElement
+  );
+}
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
